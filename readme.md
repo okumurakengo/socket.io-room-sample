@@ -1,4 +1,4 @@
-```
+```bash
 npm i
 npx webpack-dev-server
 
