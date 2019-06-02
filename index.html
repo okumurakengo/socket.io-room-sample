@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Socket.IO chat</title>
+</head>
+<body>
+
+<ul id="messages"></ul>
+<form action="">
+    <input type="radio" name="room" value="1" checked>room1
+    <input type="radio" name="room" value="2">room2
+    <br>
+    <input id="m" autocomplete="off" /><button>Send</button>
+</form>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    document.querySelector("form").addEventListener("submit", e => {
+        e.preventDefault();
+        socket.emit('chat message', {
+            msg: document.querySelector("#m").value,
+            room: `room-${e.target.room.value}`,
+        });
+    });
+    socket.on('chat message', msg => {
+        document.querySelector("#messages").insertAdjacentHTML("beforeend", `
+            <li>${msg}</li>
+        `);
+    });
+</script>
+</body>
+</html>
