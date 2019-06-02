@@ -2,7 +2,7 @@
 npm i
 npx webpack-dev-server
 
-# or
+# または
 
 yarn
 yarn run webpack-dev-server
