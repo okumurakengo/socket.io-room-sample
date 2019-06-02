@@ -1,11 +1,11 @@
 ```bash
 npm i
-npx webpack-dev-server
+node index.js
 
 # または
 
 yarn
-yarn run webpack-dev-server
+node index.js
 ```
 
 http://localhost:3000/
